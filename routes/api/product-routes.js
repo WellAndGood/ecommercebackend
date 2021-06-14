@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
       // gets a `SequelizeEagerLoadingError`
       {
       // include: [{model: Category, model: Tag}]
+      include: [Category, {model: Tag, through: ProductTag}]
       }
     );
     res.status(200).json(productData);
@@ -30,7 +31,7 @@ router.get('/:id', async (req, res) => {
     const productData = await Product.findByPk(req.params.id, {
       // // gets a `SequelizeEagerLoadingError`
       // include: [{ model: Category, model: Tag }]
-      include: [Category, {model: Tag, through: ProductTag}]
+      // include: [Category, {model: Tag, through: ProductTag}]
     });
 
     if (!productData) {

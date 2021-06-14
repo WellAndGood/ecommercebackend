@@ -22,21 +22,17 @@ Category.hasMany(Product, {
 // Products belongToMany Tags (through ProductTag)
 
 Product.belongsToMany(Tag, {
-  through: {
-    model: ProductTag,
-  },
+  through: ProductTag,
   // Define an alias for when data is retrieved
-  as: 'product_id'
+  foreignKey: 'product_id'
 });
 
 // Tags belongToMany Products (through ProductTag)
 
 Tag.belongsToMany(Product, {
-  through: {
-    model: ProductTag,
-  },
+  through: ProductTag,
   // Define an alias for when data is retrieved
-  as: 'tag_id'
+  foreignKey: 'tag_id'
 });
 
 

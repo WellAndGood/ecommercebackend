@@ -38,7 +38,6 @@ router.get('/:id', async (req, res) => {
 // Creates a new entry ✔️
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body.category_name)
     const categoryData = await Category.create({
       category_name: req.body.category_name
     }   
@@ -51,13 +50,9 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    
-    console.log(req.body.category_name) // Works
-    console.log(req.params.id) // Works
-
     const categoryData = await Category.update(
     { category_name: req.body.category_name}, 
-    { where: req.params.id });
+    { where: {id: req.params.id }});
 
     if (!categoryData) {
       res.status(404).json({ message: 'No category found with that id!' });
