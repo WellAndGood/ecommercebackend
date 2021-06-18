@@ -1,5 +1,5 @@
 
-# Ecommerce Backend - Bootcamp Spot
+# Ecommerce Backend
 ## Author: WellAndGood
 
 # Table of Contents
